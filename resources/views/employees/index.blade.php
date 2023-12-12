@@ -37,25 +37,25 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700">
+                    <tbody class=" divide-y divide-gray-200 dark:divide-gray-700">
                         @forelse ($employees as $employee)
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="px-6 py-4 whitespace-nowrap text-white">
                                 {{ $employee->uuid }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="px-6 py-4 whitespace-nowrap text-white">
                                 {{ $employee->firstname }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="px-6 py-4 whitespace-nowrap text-white">
                                 {{ $employee->lastname }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="px-6 py-4 whitespace-nowrap text-white">
                                 {{ $employee->phone }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="px-6 py-4 whitespace-nowrap text-white">
                                 {{ $employee->email }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="px-6 py-4 whitespace-nowrap text-white">
                                 <a href="{{ route('employees.show', $employee->id) }}" class="text-blue-500 hover:underline">View</a>
                                 <a href="{{ route('employees.edit', $employee->id) }}" class="ml-2 text-yellow-500 hover:underline">Edit</a>
                                 <!-- Delete action with confirmation dialog -->
