@@ -28,4 +28,6 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('employees', EmployeeController::class);
+    Route::get('/employee-count', [EmployeeController::class, 'count']);
+
 });

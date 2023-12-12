@@ -14,6 +14,12 @@ class EmployeeController extends Controller
         return view('employees.index', compact('employees'));
     }
 
+    public function count()
+    {
+        $employeeCount = Employee::count();
+
+        return response()->json(['employeeCount' => $employeeCount]);
+    }
     public function create()
     {
         return view('employees.create');
