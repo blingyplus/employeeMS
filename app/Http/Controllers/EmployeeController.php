@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class EmployeeController extends Controller
 {
@@ -28,7 +29,7 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            // validation rules here
+            'email' => ['required', 'email', 'unique:employees,email'],
         ]);
 
         Employee::create($request->all());
@@ -50,7 +51,7 @@ class EmployeeController extends Controller
     public function update(Request $request, Employee $employee)
     {
         $request->validate([
-            // validation rules here
+            'email' => ['required', 'email', Rule::unique('employees', 'email')->ignore($employee->id)],
         ]);
 
         $employee->update($request->all());

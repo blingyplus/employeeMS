@@ -30,7 +30,10 @@
 
                     <div class="mb-4">
                         <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
-                        <input type="email" name="email" id="email" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ old('email', $employee->email) }}" />
+                        <input type="email" id="email" name="email" value="{{ old('email', $employee->email) }}" required autocomplete="email" class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                        @error('email')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <!-- Add other form fields as needed -->
