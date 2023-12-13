@@ -9,11 +9,28 @@
 
     <div class="py-12">
         <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
+            @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                <strong class="font-bold">Oops!</strong>
+                <span class="block sm:inline">{{ $errors->first() }}</span>
+            </div>
+            @endif
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="flex justify-end p-4">
                     <a href="{{ route('employees.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">Create Employee</a>
                 </div>
+                <div class="flex justify p-4">
+                    <!-- <x-button href="{{ route('employees.create') }}" color="blue">Create Employee</x-button> -->
+                    <x-button onclick="window.location='{{ route('employees.exportExcel') }}'" color="green">Export to Excel</x-button>
+                    <x-button onclick="window.location='{{ route('employees.exportPdf') }}'" color="red">Export to PDF</x-button>
 
+
+                    <form class="mx-10" action="{{ route('employees.importExcel') }}" method="POST" enctype="multipart/form-data" class="inline">
+                        @csrf
+                        <input type="file" name="file" class="form-control text-white">
+                        <x-button type="submit" color="purple">Import from Excel</x-button>
+                    </form>
+                </div>
                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                     <thead class="bg-gray-50 dark:bg-gray-800">
                         <tr>

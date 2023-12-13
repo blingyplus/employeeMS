@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Exports\EmployeesExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\EmployeesImport;
+use Barryvdh\Snappy\Facades\SnappyPdf;
 
 class EmployeeController extends Controller
 {
@@ -66,5 +70,32 @@ class EmployeeController extends Controller
 
         return redirect()->route('employees.index')
             ->with('success', 'Employee deleted successfully');
+    }
+    public function exportExcel()
+    {
+        return Excel::download(new EmployeesExport, 'employees.xlsx');
+    }
+
+    public function importExcel(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:xlsx',
+            
+        ]);
+
+        Excel::import(new EmployeesImport, $request->file('file'));
+
+        return redirect()->route('employees.index')
+            ->with('success', 'Employees imported successfully');
+    }
+
+
+    public function exportPdf()
+    {
+        $employees = Employee::all();
+
+        $pdf = SnappyPdf::loadView('employees.pdf', compact('employees'));
+
+        return $pdf->download('employees.pdf');
     }
 }

@@ -29,5 +29,7 @@ Route::middleware([
 
     Route::resource('employees', EmployeeController::class);
     Route::get('/employee-count', [EmployeeController::class, 'count']);
-
+    Route::get('/export-excel', [EmployeeController::class, 'exportExcel'])->name('employees.exportExcel');
+    Route::post('/import-excel', [EmployeeController::class, 'importExcel'])->name('employees.importExcel');
+    Route::get('/export-pdf', [EmployeeController::class, 'exportPdf'])->name('employees.exportPdf');
 });
