@@ -14,7 +14,7 @@ class EmployeeController extends Controller
 {
     public function index()
     {
-        $employees = Employee::all();
+        $employees = Employee::paginate(10); // Adjust the pagination number based on your preference
 
         return view('employees.index', compact('employees'));
     }
@@ -80,7 +80,7 @@ class EmployeeController extends Controller
     {
         $request->validate([
             'file' => 'required|mimes:xlsx',
-            
+
         ]);
 
         Excel::import(new EmployeesImport, $request->file('file'));
