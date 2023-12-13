@@ -7,7 +7,7 @@ A simple Employee Management System built with Laravel, including CRUD operation
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Screenshots](#screenshots)
+- [Sample](#sample)
 - [Technologies Used](#technologies-used)
 - [License](#license)
 
@@ -94,9 +94,9 @@ A simple Employee Management System built with Laravel, including CRUD operation
 - Export and import employee data in Excel format.
 - Generate a downloadable PDF report of employees.
 
-## Screenshots
+## Sample
 
-Include screenshots of the application, demonstrating key features and interfaces.
+[Click to view how it looks like](https://employeems.outstanden.com/)
 
 ## Technologies Used
 
