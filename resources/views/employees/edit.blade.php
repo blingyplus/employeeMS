@@ -15,17 +15,17 @@
 
                     <div class="mb-4">
                         <label for="firstname" class="block text-sm font-medium text-gray-700 dark:text-gray-300">First Name</label>
-                        <input type="text" name="firstname" id="firstname" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ old('firstname', $employee->firstname) }}" />
+                        <input type="text" name="firstname" id="firstname" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ old('firstname', $employee->firstname) }}" required />
                     </div>
 
                     <div class="mb-4">
                         <label for="lastname" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Last Name</label>
-                        <input type="text" name="lastname" id="lastname" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ old('lastname', $employee->lastname) }}" />
+                        <input type="text" name="lastname" id="lastname" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ old('lastname', $employee->lastname) }}" required />
                     </div>
 
                     <div class="mb-4">
                         <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Phone Number</label>
-                        <input type="text" name="phone" id="phone" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ old('phone', $employee->phone) }}" />
+                        <input type="text" name="phone" id="phone" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ old('phone', $employee->phone) }}" required />
                     </div>
 
                     <div class="mb-4">
