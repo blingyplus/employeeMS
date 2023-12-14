@@ -14,10 +14,11 @@ class EmployeeController extends Controller
 {
     public function index()
     {
-        $employees = Employee::paginate(10); // Adjust the pagination number based on your preference
+        $employees = Employee::orderBy('id', 'desc')->paginate(10);
 
         return view('employees.index', compact('employees'));
     }
+
 
     public function count()
     {
