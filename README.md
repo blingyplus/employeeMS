@@ -97,6 +97,8 @@ A simple Employee Management System built with Laravel, including CRUD operation
 ## Sample
 
 [Click to view how it looks like](https://employeems.outstanden.com/)
+![image](https://github.com/blingyplus/employeeMS/assets/113293972/743b2180-a653-437f-8292-aeeae52d356b)
+
 
 ## Technologies Used
 
